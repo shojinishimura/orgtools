@@ -4,7 +4,7 @@
 (defun orgtools-keymap ()
   (define-key org-mode-map "\C-xp" 'orgtools-ppt-generate))
 
-(defconst orgtools-ppt-generator "/home/shoji/workspace/orgtools/lib/org_parser.rb")
+(defconst orgtools-ppt-generator "/home/shoji/workspace/orgtools/lib/ppt_generator.rb")
 (defconst orgtools-keep-output-buffer t)
 
 (defun orgtools-entry-copy ()
@@ -39,3 +39,5 @@
       (unless orgtools-keep-output-buffer
 	(kill-buffer buffer)))
      (t nil))))
+
+(provide 'orgtools)

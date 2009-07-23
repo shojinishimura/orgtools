@@ -37,9 +37,9 @@ class OrgParser
         num = $2.to_i
         line = $3
         @visitor.do_enumerate(level, num, line)
-      when /^(  )+(.*)/
+      when /^((  )+)(.*)/
         level = $1.size / 2 - 1
-        line = $2
+        line = $3
         @visitor.do_contline(level, line)
       when /^\|-/
         @visitor.do_tablesep

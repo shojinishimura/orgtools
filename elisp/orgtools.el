@@ -1,6 +1,11 @@
 (require 'org)
 
+(add-hook 'org-mode-hook 'orgtools-keymap)
+(defun orgtools-keymap ()
+  (define-key org-mode-map "\C-xp" 'orgtools-ppt-generate))
+
 (defconst orgtools-ppt-generator "/home/shoji/workspace/orgtools/lib/org_parser.rb")
+(defconst orgtools-keep-output-buffer t)
 
 (defun orgtools-entry-copy ()
   (save-excursion
@@ -31,5 +36,6 @@
 	(status (process-status proc)))
     (cond
      ((eq status 'exit)
-      (kill-buffer buffer))
+      (unless orgtools-keep-output-buffer
+	(kill-buffer buffer)))
      (t nil))))

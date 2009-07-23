@@ -1,3 +1,4 @@
+$: << File.dirname(__FILE__)
 require "org_parser"
 require "win32ole"
 
